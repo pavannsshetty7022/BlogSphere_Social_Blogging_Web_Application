@@ -2,8 +2,7 @@ import express from "express";
 import {
   createPost,
   getAllPosts,
-  toggleDislike,
-  toggleLike,
+  reactPost,
   updatePost,
   deletePost,
   addComment,
@@ -17,15 +16,14 @@ const router = express.Router();
 router.post("/", auth, createPost);
 router.get("/", getAllPosts);
 
-router.post("/like/:id", auth, toggleLike);
-router.post("/dislike/:id", auth, toggleDislike);
+router.post("/:id/react", auth, reactPost);
 
 router.put("/:id", auth, updatePost);
 router.delete("/:id", auth, deletePost);
 
 router.post("/:id/comments", auth, addComment);
 router.delete("/:id/comments/:commentId", auth, deleteComment);
-router.get("/posts/:id", auth, getPostById);
+router.get("/:id", getPostById);
 
 
 export default router;
