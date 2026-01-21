@@ -4,152 +4,148 @@ import { register as registerApi } from "../services/api";
 import usePageTitle from "../hooks/usePageTitle";
 
 const RegisterPage = () => {
-    usePageTitle("Register");
-    const [formData, setFormData] = useState({ name: "", username: "", email: "", password: "" });
-    const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+  usePageTitle("Register");
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  const [formData, setFormData] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError("");
-        setLoading(true);
-        try {
-            await registerApi(formData);
-            navigate("/login", { state: { message: "Registration successful! Please login." } });
-        } catch (err) {
-            setError(err.response?.data?.message || "Registration failed");
-        } finally {
-            setLoading(false);
-        }
-    };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    return (
-        <div className="container py-large relative z-10" style={{ position: "relative", zIndex: 10 }}>
-            <div className="row justify-content-center">
-                <div className="col-md-5">
-                    <div className="card p-4">
-                        <h2 className="text-center mb-4">
-                            <i className="bi bi-person-plus me-2"></i>Register
-                        </h2>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    try {
+      await registerApi(formData);
+      navigate("/login", {
+        state: { message: "Registration successful! Please login." },
+      });
+    } catch (err) {
+      setError(err.response?.data?.message || "Registration failed");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-                        {error && (
-                            <div className="alert alert-danger py-2">
-                                <i className="bi bi-exclamation-triangle me-2"></i>
-                                {error}
-                            </div>
-                        )}
+  return (
+    <div className="container-fluid min-vh-100 d-flex align-items-center relative z-10">
+      <div className="row justify-content-center w-100">
 
-                        <form onSubmit={handleSubmit}>
-                            <div className="mb-3">
-                                <label className="form-label">Full Name</label>
-                                <div className="input-group">
-                                    <span className="input-group-text">
-                                        <i className="bi bi-person"></i>
-                                    </span>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        className="form-control"
-                                        placeholder="John Doe"
-                                        required
-                                        autoComplete="off"
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Email Address</label>
-                                <div className="input-group">
-                                    <span className="input-group-text">
-                                        <i className="bi bi-envelope"></i>
-                                    </span>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        className="form-control"
-                                        placeholder="name@example.com"
-                                        required
-                                        autoComplete="off"
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Username</label>
-                                <div className="input-group">
-                                    <span className="input-group-text">
-                                        <i className="bi bi-at"></i>
-                                    </span>
-                                    <input
-                                        type="text"
-                                        name="username"
-                                        className="form-control"
-                                        placeholder="johndoe123"
-                                        required
-                                        autoComplete="off"
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="mb-4">
-                                <label className="form-label">Password</label>
-                                <div className="input-group">
-                                    <span className="input-group-text">
-                                        <i className="bi bi-lock"></i>
-                                    </span>
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        name="password"
-                                        className="form-control"
-                                        placeholder="Choose a strong password"
-                                        required
-                                        autoComplete="new-password"
-                                        onChange={handleChange}
-                                    />
-                                    <button
-                                        className="btn btn-outline-secondary"
-                                        type="button"
-                                        onClick={() => setShowPassword(!showPassword)}
-                                    >
-                                        <i className={`bi bi-eye${showPassword ? "" : "-slash"}`}></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="btn btn-primary w-100 py-2 mb-3"
-                                disabled={loading}
-                            >
-                                {loading && (
-                                    <span className="spinner-border spinner-border-sm me-2"></span>
-                                )}
-                                <i className="bi bi-person-check me-2"></i>
-                                Register
-                            </button>
-                        </form>
-
-                        <p className="text-center mb-0 mt-3">
-                            <i className="bi bi-box-arrow-in-right me-1"></i>
-                            Already have an account?
-                            <Link to="/login" className="ms-1 text-decoration-none">
-                                Login here
-                            </Link>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div className="col-md-4 d-none d-md-flex align-items-center justify-content-center">
+          <img
+            src="/Blog Vector.png"
+            alt="Blog Illustration"
+            className="img-fluid"
+            style={{ maxHeight: "620px" }}
+          />
         </div>
-    );
+        <div className="col-md-4">
+          <div className="card p-4 shadow-sm border-0">
+            <h2 className="text-center mb-4 fw-bold">
+              <i className="bi bi-person-plus me-2"></i>Register
+            </h2>
+
+            {error && (
+              <div className="alert alert-danger py-2">
+                <i className="bi bi-exclamation-triangle me-2"></i>
+                {error}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label className="form-label">Full Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  className="form-control"
+                  placeholder="John Doe"
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  placeholder="name@example.com"
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  className="form-control"
+                  placeholder="johndoe123"
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="form-label">Password</label>
+                <div className="input-group">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    className="form-control"
+                    placeholder="Choose a strong password"
+                    required
+                    onChange={handleChange}
+                  />
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    <i
+                      className={`bi bi-eye${showPassword ? "" : "-slash"}`}
+                    ></i>
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="btn btn-primary w-100 py-2"
+                disabled={loading}
+              >
+                {loading && (
+                  <span className="spinner-border spinner-border-sm me-2"></span>
+                )}
+                Register
+              </button>
+            </form>
+
+            <p className="text-center mt-3 mb-0">
+              Already have an account?
+              <Link to="/login" className="ms-1 text-decoration-none">
+                Login here
+              </Link>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
 };
 
 export default RegisterPage;
