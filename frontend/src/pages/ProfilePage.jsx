@@ -77,7 +77,7 @@ const ProfilePage = () => {
     };
 
     return (
-        <div className="container py-5 relative z-10" style={{ position: "relative", zIndex: 10 }}>
+        <div className="container py-4 py-md-5 relative z-10" style={{ position: "relative", zIndex: 10 }}>
             <div className="row justify-content-center">
                 <div className="col-md-6 col-lg-5">
                     <BackButton />

@@ -1,13 +1,36 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 body {
-  padding-top: 60px;
+  /* Padding for fixed navbar */
+  padding-top: 70px;
+}
+
+/* Mobile Navbar Fixes */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    /* Ensure content is scrollable if too tall */
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+  }
+
+  /* Make dropdown static in mobile view so it expands the menu instead of floating */
+  .navbar-collapse .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 1rem;
+  }
+
+  /* Ensure proper spacing for the user info in dropdown */
+  .navbar-collapse .dropdown-menu .border-bottom {
+    border-color: rgba(0, 0, 0, 0.05) !important;
+    background: transparent !important;
+  }
 }

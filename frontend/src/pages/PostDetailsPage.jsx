@@ -194,13 +194,13 @@ const PostDetailsPage = () => {
     const isAuthor = user && (user.userId === post.authorId || user.email === post.email);
 
     return (
-        <div className="container py-5 relative z-10" style={{ position: "relative", zIndex: 10 }}>
+        <div className="container py-4 py-md-5 relative z-10" style={{ position: "relative", zIndex: 10 }}>
             <div className="row justify-content-center">
                 <div className="col-lg-8">
                     <BackButton />
                     <article>
                         <header className="mb-5">
-                            <h1 className="display-4 fw-bold mb-3">{post.title}</h1>
+                            <h1 className="display-5 display-md-4 fw-bold mb-3">{post.title}</h1>
                             <div className="d-flex align-items-center justify-content-between">
                                 <div className="d-flex align-items-center">
                                     <div className="bg-light rounded-circle p-2 me-3">

@@ -50,7 +50,7 @@ const MyPostsPage = () => {
     }
 
     return (
-        <div className="container py-5 relative z-10" style={{ position: "relative", zIndex: 10 }}>
+        <div className="container py-4 py-md-5 relative z-10" style={{ position: "relative", zIndex: 10 }}>
             <BackButton />
             <div className="d-flex justify-content-between align-items-center mb-5">
                 <div>

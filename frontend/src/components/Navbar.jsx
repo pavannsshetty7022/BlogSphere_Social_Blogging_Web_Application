@@ -16,10 +16,21 @@ const Navbar = () => {
         return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
     };
 
+    const handleLinkClick = () => {
+        const navbarCollapse = document.getElementById("navbarNav");
+        if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+            // Check if bootstrap is available globally or simulate toggler click
+            const toggler = document.querySelector(".navbar-toggler");
+            if (toggler && window.getComputedStyle(toggler).display !== "none") {
+                toggler.click();
+            }
+        }
+    };
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top">
             <div className="container">
-                <Link className="navbar-brand d-flex align-items-center" to="/">
+                <Link className="navbar-brand d-flex align-items-center" to="/" onClick={handleLinkClick}>
                     <i className="bi bi-journal-text me-2 text-primary fs-3"></i>
                     <span>BlogApp</span>
                 </Link>
@@ -34,15 +45,15 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li className="nav-item">
-                            <Link className="nav-link px-3" to="/">Home</Link>
+                            <Link className="nav-link px-3" to="/" onClick={handleLinkClick}>Home</Link>
                         </li>
                         {user && (
                             <>
                                 <li className="nav-item">
-                                    <Link className="nav-link px-3" to="/create">Create Post</Link>
+                                    <Link className="nav-link px-3" to="/create" onClick={handleLinkClick}>Create Post</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link px-3" to="/my-posts">My Posts</Link>
+                                    <Link className="nav-link px-3" to="/my-posts" onClick={handleLinkClick}>My Posts</Link>
                                 </li>
                             </>
                         )}
@@ -68,13 +79,13 @@ const Navbar = () => {
                                         <p className="fw-bold mb-0">@{user.username}</p>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item py-2 px-3 rounded" to="/profile">
+                                        <Link className="dropdown-item py-2 px-3 rounded" to="/profile" onClick={handleLinkClick}>
                                             <i className="bi bi-person-circle me-2"></i>Profile
                                         </Link>
                                     </li>
                                     <li><hr className="dropdown-divider opacity-50" /></li>
                                     <li>
-                                        <button className="dropdown-item py-2 px-3 rounded text-danger" onClick={handleLogout}>
+                                        <button className="dropdown-item py-2 px-3 rounded text-danger" onClick={() => { handleLogout(); handleLinkClick(); }}>
                                             <i className="bi bi-box-arrow-right me-2"></i>Logout
                                         </button>
                                     </li>

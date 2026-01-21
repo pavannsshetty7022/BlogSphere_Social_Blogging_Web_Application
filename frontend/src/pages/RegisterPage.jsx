@@ -38,7 +38,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="container-fluid min-vh-100 d-flex align-items-center relative z-10">
+    <div className="container-fluid min-vh-100 d-flex align-items-center py-5 relative z-10">
       <div className="row justify-content-center w-100">
 
         <div className="col-md-4 d-none d-md-flex align-items-center justify-content-center">

@@ -75,9 +75,9 @@ const HomePage = () => {
     }
 
     return (
-        <div className="container py-5 relative z-10" style={{ position: "relative", zIndex: 10 }}>
+        <div className="container py-4 py-md-5 relative z-10" style={{ position: "relative", zIndex: 10 }}>
             <header className="mb-5">
-                <h1 className="display-5 mb-2">Editor's Picks</h1>
+                <h1 className="display-6 display-md-5 mb-2">Editor's Picks</h1>
                 <p className="text-secondary lead">Explore the latest thoughts and stories from our community.</p>
             </header>
 
