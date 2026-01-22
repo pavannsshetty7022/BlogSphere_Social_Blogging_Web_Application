@@ -235,6 +235,17 @@ const PostDetailsPage = () => {
                             {post.content}
                         </div>
 
+                        {post.uploadImage && (
+                            <div className="mb-5">
+                                <img 
+                                    src={`http://localhost:5000/${post.uploadImage}`} 
+                                    alt={post.title}
+                                    className="img-fluid rounded"
+                                    style={{ maxWidth: "70%", borderRadius: "8px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}
+                                />
+                            </div>
+                        )}
+
                         <div className="border-top border-bottom py-3 mb-5">
                             <div className="d-flex align-items-center gap-4 mb-3">
                                 <button
