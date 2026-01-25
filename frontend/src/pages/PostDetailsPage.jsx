@@ -321,7 +321,7 @@ const PostDetailsPage = () => {
             {post.uploadImage && (
               <div className="mb-5 d-flex justify-content-center">
                 <img
-                  src={`http://localhost:5000/${post.uploadImage}`}
+                  src={`https://blog-fullstack-application.onrender.com/${post.uploadImage}`}
                   alt={post.title}
                   className="img-fluid rounded"
                   style={{
