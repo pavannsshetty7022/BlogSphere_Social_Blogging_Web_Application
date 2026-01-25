@@ -1,0 +1,88 @@
+================================================================================
+                    BLOG APPLICATION - TECHNOLOGY STACK
+================================================================================
+
+FRONTEND TECHNOLOGIES (A-Z)
+============================
+• Axios - HTTP client for API requests
+• Bootstrap - CSS framework for responsive UI
+• Bootstrap Icons - Icon library for UI components
+• ESLint - Code linting and quality tool
+• JavaScript (ES6+) - Programming language
+• JWT Decode - JWT token parsing library
+• Node.js - JavaScript runtime environment
+• npm - Package manager
+• React - UI component library
+• React DOM - React rendering library for web
+• React Router DOM - Routing library for single-page applications
+• Vite - Build tool and development server
+
+BACKEND TECHNOLOGIES (A-Z)
+============================
+• bcryptjs - Password hashing and encryption library
+• CORS - Middleware for handling cross-origin requests
+• dotenv - Environment variable management
+• Express.js - Web application framework
+• JavaScript (ES6+) - Programming language
+• JSON Web Tokens (JWT) - Authentication mechanism
+• Mongoose - MongoDB object modeling
+• Multer - File upload middleware
+• Node.js - JavaScript runtime environment
+• Nodemon - Development tool for auto-reloading
+• npm - Package manager
+
+DATABASE TECHNOLOGIES (A-Z)
+============================
+• MongoDB - NoSQL database
+• Mongoose - ODM (Object Document Mapper) for MongoDB
+
+AUTHENTICATION & SECURITY (A-Z)
+================================
+• bcryptjs - Password hashing
+• CORS - Cross-Origin Resource Sharing
+• JWT (JSON Web Tokens) - Token-based authentication
+
+FILE HANDLING (A-Z)
+===================
+• Multer - File upload middleware
+• Static file serving (Express.js)
+
+ARCHITECTURE & DESIGN PATTERNS (A-Z)
+=====================================
+• MVC Pattern - Model-View-Controller architecture
+• RESTful API - API design pattern
+• SPA (Single Page Application) - Frontend architecture
+• Component-Based Architecture - React structure
+
+DEVELOPMENT & BUILD TOOLS (A-Z)
+================================
+• ESLint - Linting
+• Nodemon - Development server
+• Vite - Build tool and dev server
+
+STYLING & UI (A-Z)
+==================
+• Bootstrap - CSS framework
+• Bootstrap Icons - Icon library
+• CSS - Cascading Style Sheets
+
+VERSION CONTROL & DEPLOYMENT (A-Z)
+===================================
+• Git - Version control system (implied)
+• npm - Package distribution
+
+RUNTIME ENVIRONMENTS (A-Z)
+===========================
+• Node.js - JavaScript runtime
+
+================================================================================
+                            PROJECT STRUCTURE
+================================================================================
+
+Frontend: React + Vite + Bootstrap
+Backend: Express.js + Node.js
+Database: MongoDB + Mongoose
+Authentication: JWT + bcryptjs
+File Upload: Multer
+
+================================================================================
