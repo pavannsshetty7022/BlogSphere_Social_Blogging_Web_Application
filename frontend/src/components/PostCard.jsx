@@ -114,7 +114,7 @@ const PostCard = ({ post }) => {
           <div className="row mb-2">
             <div className="col-12 d-flex justify-content-center">
               <img
-                src={`https://blog-fullstack-application.onrender.com/${post.uploadImage}`}
+                src={post.uploadImage}
                 alt={post.title}
                 className="img-fluid rounded"
                 style={{
