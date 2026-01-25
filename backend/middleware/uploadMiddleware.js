@@ -1,42 +1,18 @@
 import multer from "multer";
-import path from "path";
-import fs from "fs";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+import cloudinary from "../config/cloudinary.js";
 
-const uploadDir = "uploads";
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir);
-}
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "uploads/");
-    },
-    filename: function (req, file, cb) {
-        cb(
-            null,
-            file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-        );
-    },
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "blog_uploads",
+    allowed_formats: ["jpg", "jpeg", "png", "webp"],
+  },
 });
 
-function checkFileType(file, cb) {
-    const filetypes = /jpeg|jpg|png|gif/;
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = filetypes.test(file.mimetype);
-
-    if (mimetype && extname) {
-        return cb(null, true);
-    } else {
-        cb("Error: Images Only!");
-    }
-}
-
 const upload = multer({
-    storage: storage,
-    limits: { fileSize: 5000000 }, 
-    fileFilter: function (req, file, cb) {
-        checkFileType(file, cb);
-    },
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 },
 });
 
 export default upload;
