@@ -37,8 +37,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container-fluid min-vh-100 d-flex align-items-center py-5 relative z-10">
-      <div className="row justify-content-center w-100">
+    <div className="container py-5 position-relative z-10">
+      <div className="row justify-content-center">
 
         <div className="col-md-4 d-none d-md-flex align-items-center justify-content-center">
           <img
