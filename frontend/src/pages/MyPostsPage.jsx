@@ -57,7 +57,7 @@ const MyPostsPage = () => {
                     <h1 className="fw-bold mb-1">My Posts</h1>
                     <p className="text-secondary mb-0">Manage and track your published articles.</p>
                 </div>
-                <Link to="/create" className="btn btn-primary border-1 rounded-pill px-4">
+                <Link to="/create" className="btn btn-primary  px-4">
                     <i className="bi bi-plus-lg me-2"></i> New Post
                 </Link>
             </div>
@@ -67,7 +67,7 @@ const MyPostsPage = () => {
                     <i className="bi bi-file-earmark-post fs-1 text-muted mb-3 d-block"></i>
                     <h3>You haven't written anything yet</h3>
                     <p className="text-muted mb-4">Your stories could inspire someone. Start writing today!</p>
-                    <Link to="/create" className="btn btn-outline-primary rounded-pill px-4">Create Your First Post</Link>
+                    <Link to="/create" className="btn btn-outline-primary  px-4">Create Your First Post</Link>
                 </div>
             ) : (
                 <div className="row g-4">

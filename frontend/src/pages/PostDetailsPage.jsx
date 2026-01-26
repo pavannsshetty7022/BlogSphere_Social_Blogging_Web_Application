@@ -302,13 +302,13 @@ const PostDetailsPage = () => {
                 {isAuthor && (
                   <div className="d-flex gap-2">
                     <button
-                      className="btn btn-outline-secondary btn-sm rounded-pill px-3 border-1"
+                      className="btn btn-outline-secondary btn-sm  px-3 border-1"
                       onClick={() => navigate(`/edit/${post._id}`)}
                     >
                       <i className="bi bi-pencil-square me-1"></i> Edit
                     </button>
                     <button
-                      className="btn btn-outline-danger btn-sm rounded-pill px-3 border-1"
+                      className="btn btn-outline-danger btn-sm  px-3 border-1"
                       onClick={handleDeletePost}
                     >
                       <i className="bi bi-trash me-1"></i> Delete
