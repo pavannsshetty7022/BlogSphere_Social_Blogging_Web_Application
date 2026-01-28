@@ -13,19 +13,17 @@ const LikesDropdown = ({
         (liker) => liker.userId !== currentUser?.userId
     );
 
-    const renderOthersLink = (count) => {
-        if (count <= 0) return null;
-
+    const renderLikesLink = (label, usersToShow, totalCount) => {
         return (
             <span className="dropdown position-relative">
                 <span
-                    className="text-decoration-underline dropdown-toggle"
+                    className="text-decoration-underline dropdown-toggle fw-bold"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     style={{ cursor: "pointer" }}
                 >
-                    {count} {count === 1 ? "other" : "others"}
+                    {label}
                 </span>
 
                 <ul
@@ -41,7 +39,7 @@ const LikesDropdown = ({
                         Liked by
                     </h6>
 
-                    {otherUsers.map((liker) => (
+                    {usersToShow.map((liker) => (
                         <li key={liker.userId}>
                             <span className="dropdown-item small py-1 px-2 d-flex align-items-center">
                                 <div
@@ -60,14 +58,14 @@ const LikesDropdown = ({
                         </li>
                     ))}
 
-                    {totalLikeCount > likedUsers.length && (
+                    {totalCount > usersToShow.length && (
                         <>
                             <li>
                                 <hr className="dropdown-divider my-1 opacity-50" />
                             </li>
                             <li>
                                 <span className="dropdown-item-text small text-muted">
-                                    And {totalLikeCount - likedUsers.length} more...
+                                    And {totalCount - usersToShow.length} more...
                                 </span>
                             </li>
                         </>
@@ -88,14 +86,14 @@ const LikesDropdown = ({
                 {likedByCurrentUser ? (
                     <>
                         Liked by <strong>You</strong>
-                        {otherLikeCount > 0 && <> and {renderOthersLink(otherLikeCount)}</>}
+                        {otherLikeCount > 0 && <> and {renderLikesLink(`${otherLikeCount} ${otherLikeCount === 1 ? 'other' : 'others'}`, otherUsers, totalLikeCount)}</>}
                     </>
                 ) : (
                     <>
-                        {totalLikeCount === 1 ? (
-                            <>Liked by <strong>{otherUsers[0]?.name || "1 user"}</strong></>
+                        Liked by {totalLikeCount === 1 ? (
+                            renderLikesLink(otherUsers[0]?.name || "1 user", otherUsers, totalLikeCount)
                         ) : (
-                            <>Liked by <strong>{totalLikeCount} users</strong></>
+                            renderLikesLink(`${totalLikeCount} users`, otherUsers, totalLikeCount)
                         )}
                     </>
                 )}
