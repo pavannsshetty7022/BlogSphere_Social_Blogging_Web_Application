@@ -111,9 +111,15 @@ const login = async (req, res) => {
 };
 
 const updateProfile = async (req, res) => {
+  console.log("Update Profile Request - Body:", req.body);
+  console.log("Update Profile Request - File:", req.file);
   try {
     const { name, username, email, password, removeImage } = req.body;
     const userId = req.user.userId;
+
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
 
     const user = await User.findById(userId);
     if (!user) {
@@ -171,7 +177,8 @@ const updateProfile = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error("Update profile error:", error);
+    res.status(500).json({ message: error.message || "Internal server error" });
   }
 };
 

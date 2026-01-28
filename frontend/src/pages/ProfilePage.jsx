@@ -101,7 +101,7 @@ const ProfilePage = () => {
       dataToSend.append("username", formData.username);
       dataToSend.append("email", formData.email);
       if (formData.password) dataToSend.append("password", formData.password);
-      if (imageFile) dataToSend.append("image", imageFile);
+      if (imageFile) dataToSend.append("profile", imageFile);
       if (removeImage) dataToSend.append("removeImage", "true");
 
       const { data } = await updateProfile(dataToSend);
