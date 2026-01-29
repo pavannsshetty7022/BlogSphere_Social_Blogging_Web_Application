@@ -34,6 +34,7 @@ const register = async (req, res) => {
         username: user.username,
         email: user.email,
         profileImage: user.profileImage,
+        role: user.role,
       },
       process.env.JWT_SECRET,
       { expiresIn: "3d" }
@@ -48,6 +49,7 @@ const register = async (req, res) => {
         username: user.username,
         email: user.email,
         profileImage: user.profileImage,
+        role: user.role,
       },
     });
   } catch (error) {
@@ -77,6 +79,10 @@ const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
+    if (user.status === "blocked") {
+      return res.status(403).json({ message: "Admin blocked you, please contact admin" });
+    }
+
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
@@ -89,6 +95,7 @@ const login = async (req, res) => {
         username: user.username,
         email: user.email,
         profileImage: user.profileImage,
+        role: user.role,
       },
       process.env.JWT_SECRET,
       { expiresIn: "3d" }
@@ -103,6 +110,7 @@ const login = async (req, res) => {
         username: user.username,
         email: user.email,
         profileImage: user.profileImage,
+        role: user.role,
       },
     });
   } catch (error) {
@@ -160,6 +168,7 @@ const updateProfile = async (req, res) => {
         username: user.username,
         email: user.email,
         profileImage: user.profileImage,
+        role: user.role,
       },
       process.env.JWT_SECRET,
       { expiresIn: "3d" }
@@ -174,6 +183,7 @@ const updateProfile = async (req, res) => {
         username: user.username,
         email: user.email,
         profileImage: user.profileImage,
+        role: user.role,
       },
     });
   } catch (error) {

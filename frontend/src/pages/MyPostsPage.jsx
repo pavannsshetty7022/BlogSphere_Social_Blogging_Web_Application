@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { fetchPosts, deletePost } from "../services/api";
+import { fetchPosts, deletePost, fetchNotifications, markNotificationAsRead } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import BackButton from "../components/BackButton";
 import usePageTitle from "../hooks/usePageTitle";
@@ -11,6 +11,8 @@ const MyPostsPage = () => {
     const [loading, setLoading] = useState(true);
     const { user } = useAuth();
     const navigate = useNavigate();
+    const [notifications, setNotifications] = useState([]);
+    const [alertMessage, setAlertMessage] = useState(null);
 
     const loadMyPosts = async () => {
         if (!user) return;
@@ -27,7 +29,27 @@ const MyPostsPage = () => {
 
     useEffect(() => {
         loadMyPosts();
+        loadNotifications();
     }, [user]);
+
+    const loadNotifications = async () => {
+        if (!user) return;
+        try {
+            const { data } = await fetchNotifications();
+            if (data.length > 0) {
+                const latest = data[0];
+                setAlertMessage({ message: latest.message, type: latest.type });
+                setNotifications(data);
+
+                setTimeout(() => {
+                    setAlertMessage(null);
+                    markNotificationAsRead(latest._id);
+                }, 5000);
+            }
+        } catch (err) {
+            console.error("Error fetching notifications", err);
+        }
+    };
 
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to delete this post?")) return;
@@ -62,6 +84,13 @@ const MyPostsPage = () => {
                 </Link>
             </div>
 
+            {alertMessage && (
+                <div className={`alert alert-${alertMessage.type === 'error' ? 'danger' : 'warning'} alert-dismissible fade show`} role="alert">
+                    {alertMessage.message}
+                    <button type="button" className="btn-close" onClick={() => setAlertMessage(null)} aria-label="Close"></button>
+                </div>
+            )}
+
             {posts.length === 0 ? (
                 <div className="text-center py-5 bg-light rounded-4 border">
                     <i className="bi bi-file-earmark-post fs-1 text-muted mb-3 d-block"></i>
@@ -90,10 +119,6 @@ const MyPostsPage = () => {
                                             </div>
                                         )}
                                         <p className="text-secondary" style={{
-                                            // display: "-webkit-box",
-                                            // WebkitLineClamp: 2,
-                                            // WebkitBoxOrient: "vertical",
-                                            // overflow: "hidden"
                                         }}>
                                             {post.content}
                                         </p>

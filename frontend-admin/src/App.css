@@ -3,7 +3,8 @@
 }
 
 body {
-  padding-top: 70px;
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 991px) {

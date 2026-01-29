@@ -131,10 +131,6 @@ const PostCard = ({ post }) => {
         <p
           className="card-text text-secondary mb-4"
           style={{
-            // display: "-webkit-box",
-            // WebkitLineClamp: 3,
-            // WebkitBoxOrient: "vertical",
-            // overflow: "hidden",
           }}
         >
           {post.content}

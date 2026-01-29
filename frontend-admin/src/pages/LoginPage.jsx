@@ -5,7 +5,7 @@ import { login as loginApi } from "../services/api";
 import usePageTitle from "../hooks/usePageTitle.jsx";
 
 const LoginPage = () => {
-  usePageTitle("Login");
+  usePageTitle("Admin Login");
 
   const [formData, setFormData] = useState({
     identifier: "",
@@ -30,27 +30,15 @@ const LoginPage = () => {
       const { data } = await loginApi(formData);
       loginUser(data.token);
     } catch (err) {
-      const errorMessage = err.response?.data?.message || "Invalid credentials";
-      setError(errorMessage);
-
-      if (err.response?.status === 403 || errorMessage.includes("blocked")) {
-
-        setTimeout(() => {
-          const toastEl = document.getElementById('loginToast');
-          if (toastEl) {
-            const toast = new window.bootstrap.Toast(toastEl);
-            toast.show();
-          }
-        }, 100);
-      }
+      setError(err.response?.data?.message || "Invalid credentials");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="container py-5 position-relative z-10">
-      <div className="row justify-content-center">
+    <div className="container min-vh-100 d-flex align-items-center justify-content-center p-5 position-relative z-10">
+      <div className="row w-100 justify-content-center align-items-center">
 
         <div className="col-md-4 d-none d-md-flex align-items-center justify-content-center">
           <img
@@ -61,25 +49,13 @@ const LoginPage = () => {
           />
         </div>
 
-        <div className="col-md-4">
+        <div className="col-12 col-md-4">
           <div className="card p-4 shadow-sm border-0">
             <h2 className="text-center mb-4 fw-bold">
-              <i className="bi bi-box-arrow-in-right me-2"></i>Sign In
+              <i className="bi bi-shield-lock me-2"></i>Admin Sign In
             </h2>
 
-            {/* Bootstrap Toast */}
-            <div className="toast-container position-fixed top-0 end-0 p-3">
-              <div id="loginToast" className="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
-                <div className="d-flex">
-                  <div className="toast-body">
-                    {error}
-                  </div>
-                  <button type="button" className="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-              </div>
-            </div>
-
-            {error && !error.includes("blocked") && (
+            {error && (
               <div className="alert alert-danger py-2">
                 <i className="bi bi-exclamation-triangle me-2"></i>
                 {error}
@@ -96,6 +72,7 @@ const LoginPage = () => {
                   <input
                     type="text"
                     name="identifier"
+                    value={formData.identifier}
                     className="form-control"
                     placeholder="Enter email or username"
                     required
@@ -114,6 +91,7 @@ const LoginPage = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     name="password"
+                    value={formData.password}
                     className="form-control"
                     placeholder="Enter password"
                     required
@@ -121,9 +99,17 @@ const LoginPage = () => {
                     onChange={handleChange}
                   />
                   <button
-                    className="btn btn-outline-secondary"
+                    className="btn"
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
+                    style={{
+                      borderColor: "var(--border-color)",
+                      color: "var(--text-secondary)",
+                      backgroundColor: "#f8fafc",
+                      borderTopLeftRadius: 0,
+                      borderBottomLeftRadius: 0,
+                      border: "1px solid var(--border-color)"
+                    }}
                   >
                     <i
                       className={`bi bi-eye${showPassword ? "" : "-slash"}`}
@@ -140,16 +126,10 @@ const LoginPage = () => {
                 {loading && (
                   <span className="spinner-border spinner-border-sm me-2"></span>
                 )}
-                Sign In
+                Admin Sign In
               </button>
             </form>
 
-            <p className="text-center mb-0 mt-3">
-              Don&apos;t have an account?
-              <Link to="/register" className="ms-1 text-decoration-none">
-                Sign Up
-              </Link>
-            </p>
           </div>
         </div>
 

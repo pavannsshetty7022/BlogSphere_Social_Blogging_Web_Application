@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #f8fafc;
+  --text-primary: #1e293b;
+  --headings-color: #0f172a;
+  --primary-button: #2563eb;
+  --secondary-accent: #e2e8f0;
+  --highlight-tag: #fde047;
+  --academic-blue: #1e40af;
+  --font-family: 'Inter', sans-serif;
+  --font-serif: 'Crimson Pro', serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--headings-color);
+  font-family: var(--font-family);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+  font-family: var(--font-family);
+  font-weight: 800;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--academic-blue) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-button);
+  border-color: var(--primary-button);
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  background-color: var(--academic-blue);
+  border-color: var(--academic-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.card {
+  border: 1px solid var(--secondary-accent);
+  border-radius: 16px;
+  background: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: visible !important;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1) !important;
+  z-index: 5;
+}
+
+.badge-highlight {
+  background-color: #f1f5f9;
+  color: var(--academic-blue);
+  font-weight: 600;
+  border: 1px solid var(--secondary-accent);
+}
+
+.article-content {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: #334155;
+  line-height: 1.8;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.py-large {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .py-large {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dropdown-menu {
+  z-index: 1070;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.border-1 {
+  border-width: 1px !important;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}

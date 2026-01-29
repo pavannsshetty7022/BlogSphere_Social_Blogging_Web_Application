@@ -26,9 +26,4 @@ export const reactPost = (id, reaction) => API.post(`/posts/${id}/react`, { reac
 export const addComment = (id, commentData) => API.post(`/posts/${id}/comments`, commentData);
 export const deleteComment = (id, commentId) => API.delete(`/posts/${id}/comments/${commentId}`);
 
-export const fetchNotifications = () => API.get("/notifications");
-export const markNotificationAsRead = (id) => API.put(`/notifications/${id}/read`);
-export const deleteNotification = (id) => API.delete(`/notifications/${id}`);
-
-
 export default API;
