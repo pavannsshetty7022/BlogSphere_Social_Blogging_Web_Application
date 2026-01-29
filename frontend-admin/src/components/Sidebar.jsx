@@ -10,7 +10,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             <div className="sidebar-header">
                 <div className="d-flex align-items-center gap-2">
                     <img src="/blog.png" alt="Blog Vector" className="sidebar-logo" />
-                    <span className="sidebar-brand">BlogApp Admin</span>
+                    <span className="sidebar-brand">BlogSphere Admin</span>
                 </div>
                 <button
                     className="btn btn-link text-primary p-0 d-lg-none ms-auto"

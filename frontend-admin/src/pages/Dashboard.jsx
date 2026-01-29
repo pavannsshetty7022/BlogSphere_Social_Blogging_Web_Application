@@ -161,7 +161,7 @@ const Dashboard = () => {
                     <i className="bi bi-star-fill"></i>
                 </div>
                 <h3 className="welcome-title">Admin Spotlight</h3>
-                <p className="welcome-text">Welcome to the central command center of BlogApp. Monitor engagement, manage users, and curate content with ease.</p>
+                <p className="welcome-text">Welcome to the central command center of BlogSphere. Monitor engagement, manage users, and curate content with ease.</p>
             </div>
         </div>
     );
