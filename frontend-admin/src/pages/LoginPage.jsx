@@ -37,7 +37,41 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container py-5 position-relative z-10">
+    <div className="container py-5 position-relative z-10 admin-login-card">
+      <style>
+        {`
+          .admin-login-card .form-control,
+          .admin-login-card .input-group-text,
+          .admin-login-card .btn {
+            font-size: 1rem !important;
+            padding: 0.375rem 0.75rem !important;
+            height: auto !important;
+          }
+          .admin-login-card .card {
+            border-radius: 1rem !important;
+          }
+          .admin-login-card .form-label {
+            font-size: 1rem !important;
+            font-weight: 500 !important;
+          }
+          .admin-login-card .input-group-text {
+            background-color: #e9ecef !important;
+            border: 1px solid #ced4da !important;
+          }
+          .admin-login-card .form-control {
+            border: 1px solid #ced4da !important;
+          }
+          .admin-login-card .btn-outline-secondary {
+            border: 1px solid #ced4da !important;
+            border-left: none !important;
+            color: #6c757d !important;
+            background-color: transparent !important;
+          }
+          .admin-login-card .bi {
+            font-size: 1.1rem !important;
+          }
+        `}
+      </style>
       <div className="row justify-content-center">
 
         <div className="col-md-4 d-none d-md-flex align-items-center justify-content-center">

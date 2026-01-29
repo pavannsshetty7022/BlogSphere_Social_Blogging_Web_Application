@@ -12,18 +12,18 @@ API.interceptors.request.use((req) => {
     return req;
 });
 
-export const login = (formData) => API.post("/auth/login", formData);
-export const register = (formData) => API.post("/auth/register", formData);
-export const logout = () => API.post("/auth/logout");
-export const updateProfile = (formData) => API.put("/auth/profile", formData);
+export const login = (formData) => API.post("/api/auth/login", formData);
+export const register = (formData) => API.post("/api/auth/register", formData);
+export const logout = () => API.post("/api/auth/logout");
+export const updateProfile = (formData) => API.put("/api/auth/profile", formData);
 
-export const fetchPosts = () => API.get("/posts");
-export const fetchPostById = (id) => API.get(`/posts/${id}`);
-export const createPost = (newPost) => API.post("/posts", newPost);
-export const updatePost = (id, updatedPost) => API.put(`/posts/${id}`, updatedPost);
-export const deletePost = (id) => API.delete(`/posts/${id}`);
-export const reactPost = (id, reaction) => API.post(`/posts/${id}/react`, { reaction });
-export const addComment = (id, commentData) => API.post(`/posts/${id}/comments`, commentData);
-export const deleteComment = (id, commentId) => API.delete(`/posts/${id}/comments/${commentId}`);
+export const fetchPosts = () => API.get("/api/posts");
+export const fetchPostById = (id) => API.get(`/api/posts/${id}`);
+export const createPost = (newPost) => API.post("/api/posts", newPost);
+export const updatePost = (id, updatedPost) => API.put(`/api/posts/${id}`, updatedPost);
+export const deletePost = (id) => API.delete(`/api/posts/${id}`);
+export const reactPost = (id, reaction) => API.post(`/api/posts/${id}/react`, { reaction });
+export const addComment = (id, commentData) => API.post(`/api/posts/${id}/comments`, commentData);
+export const deleteComment = (id, commentId) => API.delete(`/api/posts/${id}/comments/${commentId}`);
 
 export default API;
