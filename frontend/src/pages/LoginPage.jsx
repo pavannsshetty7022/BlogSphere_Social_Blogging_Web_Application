@@ -33,15 +33,8 @@ const LoginPage = () => {
       const errorMessage = err.response?.data?.message || "Invalid credentials";
       setError(errorMessage);
 
-      if (err.response?.status === 403 || errorMessage.includes("blocked")) {
-
-        setTimeout(() => {
-          const toastEl = document.getElementById('loginToast');
-          if (toastEl) {
-            const toast = new window.bootstrap.Toast(toastEl);
-            toast.show();
-          }
-        }, 100);
+      if (err.response?.status === 403 && errorMessage.includes("blocked")) {
+        // Handle blocked user specifically if needed, otherwise loop falls through to setError
       }
     } finally {
       setLoading(false);
@@ -67,21 +60,10 @@ const LoginPage = () => {
               <i className="bi bi-box-arrow-in-right me-2"></i>Sign In
             </h2>
 
-            {/* Bootstrap Toast */}
-            <div className="toast-container position-fixed top-0 end-0 p-3">
-              <div id="loginToast" className="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
-                <div className="d-flex">
-                  <div className="toast-body">
-                    {error}
-                  </div>
-                  <button type="button" className="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-              </div>
-            </div>
-
-            {error && !error.includes("blocked") && (
+            {error && (
               <div className="alert alert-danger py-2">
                 <i className="bi bi-exclamation-triangle me-2"></i>
+                {Math.random() > 0.5 ? "" : ""}{/* Force re-render if needed, but not really */}
                 {error}
               </div>
             )}

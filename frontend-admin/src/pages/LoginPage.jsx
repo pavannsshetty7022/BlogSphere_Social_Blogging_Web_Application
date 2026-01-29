@@ -37,8 +37,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container min-vh-100 d-flex align-items-center justify-content-center p-5 position-relative z-10">
-      <div className="row w-100 justify-content-center align-items-center">
+    <div className="container py-5 position-relative z-10">
+      <div className="row justify-content-center">
 
         <div className="col-md-4 d-none d-md-flex align-items-center justify-content-center">
           <img
@@ -49,7 +49,7 @@ const LoginPage = () => {
           />
         </div>
 
-        <div className="col-12 col-md-4">
+        <div className="col-md-4">
           <div className="card p-4 shadow-sm border-0">
             <h2 className="text-center mb-4 fw-bold">
               <i className="bi bi-shield-lock me-2"></i>Admin Sign In
@@ -99,17 +99,9 @@ const LoginPage = () => {
                     onChange={handleChange}
                   />
                   <button
-                    className="btn"
+                    className="btn btn-outline-secondary"
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    style={{
-                      borderColor: "var(--border-color)",
-                      color: "var(--text-secondary)",
-                      backgroundColor: "#f8fafc",
-                      borderTopLeftRadius: 0,
-                      borderBottomLeftRadius: 0,
-                      border: "1px solid var(--border-color)"
-                    }}
                   >
                     <i
                       className={`bi bi-eye${showPassword ? "" : "-slash"}`}
