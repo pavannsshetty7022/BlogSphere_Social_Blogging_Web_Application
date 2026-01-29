@@ -43,7 +43,7 @@ const Navbar = () => {
           onClick={handleLinkClick}
         >
           <i className="bi bi-journal-text me-2 text-primary fs-3"></i>
-          <span>BlogApp</span>
+          <span>BlogSphere</span>
         </NavLink>
 
         <button
@@ -64,6 +64,15 @@ const Navbar = () => {
                 className={navLinkClass}
               >
                 Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/about"
+                onClick={handleLinkClick}
+                className={navLinkClass}
+              >
+                About
               </NavLink>
             </li>
 

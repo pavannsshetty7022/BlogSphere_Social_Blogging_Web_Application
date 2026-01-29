@@ -11,6 +11,7 @@ import CreatePostPage from "./pages/CreatePostPage";
 import MyPostsPage from "./pages/MyPostsPage";
 import ProfilePage from "./pages/ProfilePage";
 import UpdatePostPage from "./pages/UpdatePostPage";
+import AboutPage from "./pages/AboutPage";
 import BackgroundLayout from "./components/BackgroundLayout";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -28,6 +29,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/about" element={<AboutPage />} />
 
               <Route
                 path="/"

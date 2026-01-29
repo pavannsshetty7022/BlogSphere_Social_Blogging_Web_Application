@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const usePageTitle = (title) => {
     useEffect(() => {
-        document.title = `BlogApp | ${title}`;
+        document.title = `BlogSphere | ${title}`;
     }, [title]);
 };
 
