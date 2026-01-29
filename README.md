@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend\public\BlogApp Logo.png" width="120" alt="Blog App Icon"/>
+  <img src="frontend/public/BlogApp Logo.png" width="120" alt="Blog App Icon"/>
 </p>
 
 <h1 align="center">🚀 Blog Application – Full Stack MERN Project</h1>
@@ -22,12 +22,26 @@
 
 The **Blog Application** is a full-stack web platform that enables users to create, manage, and interact with blog posts. It features secure authentication, image uploads, likes, dislikes, and comments, all built using scalable architecture and modern UI principles.
 
+This project includes **two separate interfaces**:
+- **User Panel** – for reading and creating blogs
+- **Admin Panel** – for managing users, posts, and platform activity
+
+---
+
+## 🌐 Live Deployment
+
+- **Admin Panel:**  
+  👉 https://blog-admin-panel-dt7.pages.dev  
+
+- **User Panel:**  
+  👉 https://blog-fullstack-application.pages.dev  
+
 ---
 
 ## ✨ Key Features
 
 | Feature | Description |
-|----------|--------------|
+|-----------|--------------|
 | 🔐 Authentication | Secure login & registration using JWT |
 | ✍️ Blog CRUD | Create, Read, Update, Delete blog posts |
 | ❤️ Like / 👎 Dislike | Interactive reactions system |
@@ -37,6 +51,7 @@ The **Blog Application** is a full-stack web platform that enables users to crea
 | ⚡ Fast Performance | Vite-powered frontend |
 | 🧱 MVC Architecture | Clean backend structure |
 | 🌐 REST API | Scalable API design |
+| 🛡️ Admin Dashboard | Manage users, posts & moderation |
 
 ---
 
@@ -45,7 +60,7 @@ The **Blog Application** is a full-stack web platform that enables users to crea
 ### 🎨 Frontend
 
 | Technology | Purpose |
-|-------------|-----------|
+|--------------|-----------|
 | React | UI development |
 | Vite | Build & dev server |
 | Bootstrap | Responsive UI |
@@ -84,7 +99,7 @@ The **Blog Application** is a full-stack web platform that enables users to crea
 ## 🏗️ Architecture
 
 | Pattern | Usage |
-|-----------|--------|
+|------------|---------|
 | MVC | Backend structure |
 | REST API | Client-server communication |
 | SPA | Frontend architecture |
@@ -92,5 +107,25 @@ The **Blog Application** is a full-stack web platform that enables users to crea
 
 ---
 
+## 🚀 Deployment
 
+- **Frontend (User & Admin):** Cloudflare Pages  
+- **Backend:** Render  
+- **Database:** MongoDB Atlas  
 
+---
+
+## 📄 License
+
+This project is developed for learning, portfolio, and academic purposes.
+
+---
+
+## 👨‍💻 Author
+
+**Pavan Kumar Shetty**  
+Full Stack Developer | MERN | React | Node.js  
+
+---
+
+⭐ If you like this project, consider giving it a star!
