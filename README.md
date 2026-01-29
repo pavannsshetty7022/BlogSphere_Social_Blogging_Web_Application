@@ -2,7 +2,7 @@
   <img src="frontend/public/BlogApp Logo.png" width="120" alt="Blog App Icon"/>
 </p>
 
-<h1 align="center">🚀 Blog Application – Full Stack MERN Project</h1>
+<h1 align="center">BlogSphere - Social Blogging Web Application</h1>
 
 <p align="center">
   <b>A modern, secure, scalable, and responsive blogging platform built using the MERN stack.</b>
